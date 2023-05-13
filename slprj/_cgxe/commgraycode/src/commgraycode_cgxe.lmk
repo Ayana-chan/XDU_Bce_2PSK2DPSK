@@ -1,0 +1,45 @@
+CC     = "D:\MATLAB\R2023a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "D:\MATLAB\R2023a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "D:\MATLAB\R2023a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -w -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec
+LDFLAGS = -s -dll -L"D:\MATLAB\R2023a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map
+LIBFLAGS = 
+
+OBJECTS = \
+	"c_mexapi_version.obj"\
+	"lccstub.obj"\
+	"commgraycode_cgxe.obj"\
+	"m_mjL3UKLNYALOGRxG37ef3C.obj"\
+	"commgraycode_cgxe_registry.obj"\
+	"commgraycode_cgxe.def"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmx.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmex.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmat.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libfixedpoint.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libut.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwmathutil.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libemlrt.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwcgxert.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwcgxeooprt.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwslexec_simbridge.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwslccrt.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwstringutil.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libcovrt.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwsl_sfcn_cov_bridge.lib"\
+	"D:\MATLAB\R2023a\extern\lib\win64\microsoft\libmwdsp_halidesim.lib"\
+
+INCLUDE_PATH= -I"D:\MATLAB\R2023a\extern\include"  -I"D:\MATLAB\R2023a\simulink\include"  -I"D:\MATLAB\R2023a\rtw\c\src"  -I"D:\Code\Matlab\B测"  -I"D:\MATLAB\R2023a\toolbox\comm\commutilities"  -I"D:\Code\Matlab\B测\slprj\_cprj"  -I"D:\MATLAB\R2023a\sys\lcc64\lcc64\include64"  -I"D:\Code\Matlab\B测\slprj\_cgxe\commgraycode\src" 
+ 
+
+commgraycode_cgxe.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o commgraycode_cgxe.mexw64 @commgraycode_cgxe.lmko
+c_mexapi_version.obj :	"D:\MATLAB\R2023a\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "D:\MATLAB\R2023a\extern\version\c_mexapi_version.c"
+lccstub.obj :	"D:\MATLAB\R2023a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "D:\MATLAB\R2023a\sys\lcc64\lcc64\mex\lccstub.c"
+commgraycode_cgxe.obj :	"commgraycode_cgxe.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "commgraycode_cgxe.c"
+m_mjL3UKLNYALOGRxG37ef3C.obj :	"m_mjL3UKLNYALOGRxG37ef3C.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "m_mjL3UKLNYALOGRxG37ef3C.c"
+commgraycode_cgxe_registry.obj :	"commgraycode_cgxe_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "commgraycode_cgxe_registry.c"
